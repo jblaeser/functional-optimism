@@ -39,22 +39,29 @@ for(var i = 0; i < speechesArray.length; i++){
   };
 };
 
-function noRed (){
+function noRed(){
   for(i=0; i<pageArticles.length; i++) {
     pageArticles[i].classList.remove("generous-donation");
   };
 };
 
-function addRed (){
+function addRed(){
   for(i=0; i<pageArticles.length; i++) {
     pageArticles[i].classList.add("generous-donation");
   };
 };
 
-
-function getAuthorAndYearString (speechName){
+function getAuthorAndYearString(speechName){
   return "This speech was written by " + speechName["author"] + " in " + speechName["year"] + "."; 
 };
+
+function displayBCEString(speechName){
+  if(speechName["yearIsBCE"] === true){
+    consoleDisplay.innerHTML += "<br> <br> This speech took place before the common era."
+  } else{
+    consoleDisplay.innerHTML += "<br> <br> This speech took place during the common era."
+  }
+}
 
 
 document.getElementById('BtnDonate').addEventListener('click', function(){
@@ -88,11 +95,7 @@ document.getElementById('BtnChurchill').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Churchill" button.
   consoleDisplay.innerHTML = getAuthorAndYearString(churchillSpeech);
 
-  if(speechesArray[0].yearIsBCE === true){
-    consoleDisplay.innerHTML += "<br> <br> This speech took place before the common era."
-  } else{
-    consoleDisplay.innerHTML += "<br> <br> This speech took place during the common era."
-  }
+  displayBCEString(churchillSpeech);
 
   if(speechesArray[0].year === oldest){
     consoleDisplay.innerHTML += "<br> <br> This is the oldest speech on the page.";
@@ -108,12 +111,8 @@ document.getElementById('BtnGhandi').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Ghandi" button.
   consoleDisplay.innerHTML = getAuthorAndYearString(ghandiSpeech);
   
+  displayBCEString(ghandiSpeech);
 
-  if(speechesArray[1].yearIsBCE === true){
-    consoleDisplay.innerHTML += "<br> <br> This speech took place before the common era."
-  } else{
-    consoleDisplay.innerHTML += "<br> <br> This speech took place during the common era."
-  }
 
   if(speechesArray[1].year === oldest){
     consoleDisplay.innerHTML += "<br> <br> This is the oldest speech on the page.";
@@ -129,12 +128,8 @@ document.getElementById('BtnDemosthenes').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Demosthenes" button.
   consoleDisplay.innerHTML = getAuthorAndYearString(demosthenesSpeech);
 
+  displayBCEString(demosthenesSpeech);
 
-  if(speechesArray[2].yearIsBCE === true){
-    consoleDisplay.innerHTML += "<br> <br> This speech took place before the common era."
-  } else{
-    consoleDisplay.innerHTML += "<br> <br> This speech took place during the common era."
-  }
 
   if(speechesArray[2].year === oldest){
     consoleDisplay.innerHTML += "<br> <br> This is the oldest speech on the page.";
