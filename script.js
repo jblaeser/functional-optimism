@@ -27,11 +27,19 @@ var churchillSpeech = {
     pageArticles = document.getElementsByTagName("article");
 
 
+/* noRed()
+    -Removes "generous-donation" class from the H2 headings of each article
+*/
+
 function noRed(){
   for(i=0; i<pageArticles.length; i++) {
     pageArticles[i].classList.remove("generous-donation");
   };
 };
+
+/* addRed()
+    -Adds "generous-donation" class to the H2 headings of each article
+*/
 
 function addRed(){
   for(i=0; i<pageArticles.length; i++) {
@@ -39,9 +47,20 @@ function addRed(){
   };
 };
 
+/* gethAuthorandYearString()
+    -Returns a string with the author and year of the provided speech.
+*/
+
 function getAuthorAndYearString(speechName){
   return "This speech was written by " + speechName.author + " in " + speechName.year + "."; 
 };
+
+
+/* displayBCEString()
+    -Checks if the yearIsBCE boolean is true
+    -If so, changes the innerHTML of the consoleDisplay to say the speech was before the common era.
+    -If not, changes the innerHTML of the consoleDisplay to say the speech took place during the common era.
+*/
 
 function displayBCEString(speechName){
   if(speechName.yearIsBCE === true){
@@ -50,6 +69,12 @@ function displayBCEString(speechName){
     consoleDisplay.innerHTML += "<br> <br> This speech took place during the common era."
   };
 };
+
+/* gethOldestOrYoungestString()
+    -Defines variables for the oldest and newest speeches.
+    -Uses a for loop to check each speech to set the oldest and newest variables.
+    -Changes the innerHTML of the consoleDisplay to a message reflecting whether the speech is the oldest or newest.
+*/
 
 function getOldestOrYoungestString(speechName){
   var oldest = speechesArray[0].year,
