@@ -51,6 +51,12 @@ function addRed (){
   };
 };
 
+
+function getAuthorAndYearString (speechName){
+  return "This speech was written by " + speechName["author"] + " in " + speechName["year"] + "."; 
+};
+
+
 document.getElementById('BtnDonate').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Donate" button.
 
@@ -80,7 +86,7 @@ document.getElementById('BtnDonate').addEventListener('click', function(){
 
 document.getElementById('BtnChurchill').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Churchill" button.
-  consoleDisplay.innerHTML = 'This speech was written by ' + speechesArray[0].author + ' in ' + speechesArray[0].year + '.';
+  consoleDisplay.innerHTML = getAuthorAndYearString(churchillSpeech);
 
   if(speechesArray[0].yearIsBCE === true){
     consoleDisplay.innerHTML += "<br> <br> This speech took place before the common era."
@@ -100,7 +106,8 @@ document.getElementById('BtnChurchill').addEventListener('click', function(){
 
 document.getElementById('BtnGhandi').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Ghandi" button.
-  consoleDisplay.innerHTML = 'This speech was written by ' + speechesArray[1].author + ' in ' + speechesArray[1].year + '.';
+  consoleDisplay.innerHTML = getAuthorAndYearString(ghandiSpeech);
+  
 
   if(speechesArray[1].yearIsBCE === true){
     consoleDisplay.innerHTML += "<br> <br> This speech took place before the common era."
@@ -120,7 +127,8 @@ document.getElementById('BtnGhandi').addEventListener('click', function(){
 
 document.getElementById('BtnDemosthenes').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Demosthenes" button.
-  consoleDisplay.innerHTML = 'This speech was written by ' + speechesArray[2].author + ' in ' + speechesArray[2].year + '.';
+  consoleDisplay.innerHTML = getAuthorAndYearString(demosthenesSpeech);
+
 
   if(speechesArray[2].yearIsBCE === true){
     consoleDisplay.innerHTML += "<br> <br> This speech took place before the common era."
